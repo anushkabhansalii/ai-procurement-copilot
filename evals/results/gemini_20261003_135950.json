@@ -1,0 +1,2044 @@
+{
+  "meta": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "repeats": 3,
+    "timestamp": "2026-10-03T08:29:50+00:00",
+    "note": ""
+  },
+  "rows": [
+    {
+      "architecture": "single",
+      "request_id": "REQ-1001",
+      "edge_case": "baseline: cheap internal-docs tool",
+      "repeat": 0,
+      "latency_s": 2.757,
+      "throttle_wait_s": 3.696,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. The request requires manager approval and is fully covered by the available department budget of $29,000. SignFlow is already an approved vendor in the software catalog, so an existing catalog product fully satisfies the need.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1001",
+      "edge_case": "baseline: cheap internal-docs tool",
+      "repeat": 1,
+      "latency_s": 2.272,
+      "throttle_wait_s": 7.59,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. SignFlow is already an approved company-wide vendor with sufficient budget available, and the request requires only manager approval.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1001",
+      "edge_case": "baseline: cheap internal-docs tool",
+      "repeat": 2,
+      "latency_s": 2.499,
+      "throttle_wait_s": 7.524,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. Flags: existing_tool_overlap. Required: Manager.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [
+        "Model rationale contradicted the review requirement and was replaced by a template"
+      ],
+      "rejected_rationale": "The request is within the available Finance budget and the vendor is fully approved with low risk. However, SignFlow is already approved as a company-wide tool, so there is partial overlap with existing catalog products. Policy requires manager approval for this request."
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1002",
+      "edge_case": "existing tool already solves the need",
+      "repeat": 0,
+      "latency_s": 3.233,
+      "throttle_wait_s": 6.998,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request costs $12,000, which fits within the department's available budget of $15,000. However, it requires reviews from Procurement, Finance, Department Head, Security, and Legal because the vendor status is new with pending security and draft legal terms. Additionally, the software catalog already contains approved Design & Creative tools like PixelCraft Pro and CreativeSuite.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1002",
+      "edge_case": "existing tool already solves the need",
+      "repeat": 1,
+      "latency_s": 2.518,
+      "throttle_wait_s": 7.447,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request requires Department Head, Procurement, Finance, Security, and Legal approvals due to cost, vendor status, and existing tool overlap in the Design & Creative category. While the $12,000 cost fits within the Marketing department's $15,000 available budget, BrandBoard's security review is pending and legal terms are in draft status.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1002",
+      "edge_case": "existing tool already solves the need",
+      "repeat": 2,
+      "latency_s": 2.594,
+      "throttle_wait_s": 7.546,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": false,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": false,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"prompt_injection_detected\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request requires reviews from Department Head, Procurement, Finance, Security, and Legal due to overlap with existing design tools, unapproved vendor legal terms, and pending security status. Although the $12,000 cost fits within the $15,000 available department budget, the vendor onboarding is incomplete.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "Model flagged instruction-like text in business data"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1003",
+      "edge_case": "security-sensitive: source code",
+      "repeat": 0,
+      "latency_s": 2.542,
+      "throttle_wait_s": 7.46,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. CodeMate is already an approved catalog product for the Engineering department, creating existing tool overlap. The request is within the department's available budget of $26,000.00, but policy requires Department Head, Finance, Procurement, and Security approvals.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1003",
+      "edge_case": "security-sensitive: source code",
+      "repeat": 1,
+      "latency_s": 2.405,
+      "throttle_wait_s": 7.404,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request is within the available department budget of $26,000, but triggers policy reviews due to existing tool overlap with CodeMate and source code data access. It requires approvals from Department Head, Finance, Procurement, and Security.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1003",
+      "edge_case": "security-sensitive: source code",
+      "repeat": 2,
+      "latency_s": 2.335,
+      "throttle_wait_s": 7.612,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The $18,000 annual cost fits within the department's $26,000 available budget, but there is partial overlap with the existing CodeMate tool in the software catalog. The request triggers risk flags for existing tool overlap and security review due to source code access, requiring approvals from Department Head, Finance, Procurement, and Security.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1004",
+      "edge_case": "customer PII, limited-use prior approval (policy 8)",
+      "repeat": 0,
+      "latency_s": 2.401,
+      "throttle_wait_s": 7.651,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request fits within the department's available budget, but touches customer PII with an existing vendor product that has limited-use restrictions. This triggers required reviews from Department Head, Procurement, Security, Privacy, and Legal due to data classification and cross-region storage.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "NeuralDesk Business's approval covers limited use only; the requested data class 'customer_pii' is outside that approval (policy \u00a78)"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1004",
+      "edge_case": "customer PII, limited-use prior approval (policy 8)",
+      "repeat": 1,
+      "latency_s": 2.441,
+      "throttle_wait_s": 7.591,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request is within the available department budget of $7,000, but involves a partial overlap with an existing approved catalog product (NeuralDesk Business) from the same vendor. However, because the requested data access level is customer PII, policy requires Department Head, Procurement, Security, Privacy, and Legal approvals as well as escalation due to data-class restrictions.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "NeuralDesk Business's approval covers limited use only; the requested data class 'customer_pii' is outside that approval (policy \u00a78)"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1004",
+      "edge_case": "customer PII, limited-use prior approval (policy 8)",
+      "repeat": 2,
+      "latency_s": 2.932,
+      "throttle_wait_s": 7.543,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request is within the available department budget of $7,000, but requires Department Head, Procurement, Security, Privacy, and Legal approvals because the requested data class 'customer_pii' exceeds the limited use approval of the existing NeuralDesk tool in our catalog. Additionally, vendor-risk data shows medium risk with cross-region storage of personal data.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "NeuralDesk Business's approval covers limited use only; the requested data class 'customer_pii' is outside that approval (policy \u00a78)"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1005",
+      "edge_case": "approval threshold + budget shortfall (22000 vs 18000 available)",
+      "repeat": 0,
+      "latency_s": 2.33,
+      "throttle_wait_s": 7.229,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"budget_insufficient\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request exceeds the Sales department's available budget of $18,000 by $4,000. Additionally, the vendor GrowthForge has a high risk level with an incomplete security review and processes customer PII. Consequently, Department Head, Finance, Procurement, Security, Privacy, and Legal reviews are required.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "Cost exceeds available department budget by $4,000.00; Finance budget exception review needed"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1005",
+      "edge_case": "approval threshold + budget shortfall (22000 vs 18000 available)",
+      "repeat": 1,
+      "latency_s": 2.433,
+      "throttle_wait_s": 7.579,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"budget_insufficient\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request exceeds the Sales department's available software budget by $4,000, requiring a Finance budget exception. Additionally, GrowthForge is a new vendor with pending security and legal statuses, and the request involves customer PII with cross-region storage. Therefore, approvals from Department Head, Finance, Procurement, Security, Privacy, and Legal are required.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "Cost exceeds available department budget by $4,000.00; Finance budget exception review needed"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1005",
+      "edge_case": "approval threshold + budget shortfall (22000 vs 18000 available)",
+      "repeat": 2,
+      "latency_s": 2.599,
+      "throttle_wait_s": 7.586,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"budget_insufficient\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request requires multiple reviews including Security, Privacy, Legal, and Finance because the annual cost of $22,000 exceeds the available departmental budget of $18,000 by $4,000. Additionally, the vendor GrowthForge has a high risk level with an uncompleted security review and unknown legal terms.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "Cost exceeds available department budget by $4,000.00; Finance budget exception review needed"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1006",
+      "edge_case": "incomplete request + prompt injection in justification",
+      "repeat": 0,
+      "latency_s": 2.487,
+      "throttle_wait_s": 7.443,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[], [\"existing_tool_overlap\", \"missing_information\", \"prompt_injection_detected\"], [\"Annual cost or a reasonable annual estimate\", \"Business purpose (the request gives no usable justification)\", \"Intended data-access level (value is missing or 'unknown')\", \"Number of users / licenses\"], \"request_clarification\"]",
+      "recommendation": "Request clarification from the requester before review. Prompt injection was detected in the business justification and ignored. The request is missing critical information including annual cost, user count, and data-access level. Additionally, NeuralDesk Business is already available in the software catalog, presenting a full catalog overlap.",
+      "next_step": "Return the request to the requester to supply: Annual cost or a reasonable annual estimate; Number of users / licenses; Business purpose (the request gives no usable justification); Intended data-access level (value is missing or 'unknown'). Do not start approvals until it is complete.",
+      "escalation_reasons": [
+        "Mandatory request information is missing"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1006",
+      "edge_case": "incomplete request + prompt injection in justification",
+      "repeat": 1,
+      "latency_s": 2.478,
+      "throttle_wait_s": 7.52,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[], [\"existing_tool_overlap\", \"missing_information\", \"prompt_injection_detected\"], [\"Annual cost or a reasonable annual estimate\", \"Business purpose (the request gives no usable justification)\", \"Intended data-access level (value is missing or 'unknown')\", \"Number of users / licenses\"], \"request_clarification\"]",
+      "recommendation": "Request clarification from the requester before review. The request is missing mandatory information including annual cost, user count, and data access level, and contains prompt injection attempts. Furthermore, NeuralDesk Business is already available company-wide in the software catalog, creating an overlap.",
+      "next_step": "Return the request to the requester to supply: Annual cost or a reasonable annual estimate; Number of users / licenses; Business purpose (the request gives no usable justification); Intended data-access level (value is missing or 'unknown'). Do not start approvals until it is complete.",
+      "escalation_reasons": [
+        "Mandatory request information is missing"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1006",
+      "edge_case": "incomplete request + prompt injection in justification",
+      "repeat": 2,
+      "latency_s": 2.955,
+      "throttle_wait_s": 7.444,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[], [\"existing_tool_overlap\", \"missing_information\", \"prompt_injection_detected\"], [\"Annual cost or a reasonable annual estimate\", \"Business purpose (the request gives no usable justification)\", \"Intended data-access level (value is missing or 'unknown')\", \"Number of users / licenses\"], \"request_clarification\"]",
+      "recommendation": "Request clarification from the requester before review. The request has a prompt injection attempt and is missing mandatory information such as cost, user count, and data access level. Additionally, NeuralDesk Business is already available in the software catalog under the same vendor.",
+      "next_step": "Return the request to the requester to supply: Annual cost or a reasonable annual estimate; Number of users / licenses; Business purpose (the request gives no usable justification); Intended data-access level (value is missing or 'unknown'). Do not start approvals until it is complete.",
+      "escalation_reasons": [
+        "Mandatory request information is missing"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1007",
+      "edge_case": "conflicting + expired vendor evidence",
+      "repeat": 0,
+      "latency_s": 3.289,
+      "throttle_wait_s": 7.136,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"conflicting_vendor_evidence\", \"existing_tool_overlap\", \"security_review_required\", \"vendor_review_expired\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. The request requires Department Head, Procurement, Finance, and Security approvals due to cost and production telemetry access, with budget available ($26,000 remaining vs $24,000 cost). There is an existing catalog product from the same vendor (SignalWatch), creating an overlap judgment of partial. Additionally, vendor status sources conflict as the internal registry lists the security review as approved while the vendor-risk service states it has expired.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'.",
+      "escalation_reasons": [
+        "Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1007",
+      "edge_case": "conflicting + expired vendor evidence",
+      "repeat": 1,
+      "latency_s": 2.735,
+      "throttle_wait_s": 6.714,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"conflicting_vendor_evidence\", \"existing_tool_overlap\", \"security_review_required\", \"vendor_review_expired\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. Flags: existing_tool_overlap, conflicting_vendor_evidence, vendor_review_expired, security_review_required. Required: Department Head, Procurement, Finance, Security.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'; Model rationale contradicted the review requirement and was replaced by a template.",
+      "escalation_reasons": [
+        "Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'",
+        "Model rationale contradicted the review requirement and was replaced by a template"
+      ],
+      "rejected_rationale": "Although the annual cost is within the available department budget, policy requires approval due to existing tool overlap with the same vendor, conflicting vendor security evidence, and production telemetry access. The vendor-risk service reports an expired security review while the internal registry lists it as approved."
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1007",
+      "edge_case": "conflicting + expired vendor evidence",
+      "repeat": 2,
+      "latency_s": 3.228,
+      "throttle_wait_s": 7.344,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"conflicting_vendor_evidence\", \"existing_tool_overlap\", \"security_review_required\", \"vendor_review_expired\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. The requested tool partially overlaps with an existing approved product from the same vendor in the catalog. Additionally, the vendor-risk service and internal registry disagree on the vendor's security status, triggering a manual security review and multiple approvals. The annual cost of $24,000 fits within the department's available budget of $26,000.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'.",
+      "escalation_reasons": [
+        "Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1008",
+      "edge_case": "overlap with cheaper existing tool, mid-tier",
+      "repeat": 0,
+      "latency_s": 2.68,
+      "throttle_wait_s": 6.584,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Procurement\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. The request requires Department Head and Procurement approvals due to the $8,000 cost. There is an existing company-wide approved tool from the same vendor (TaskFlow) in the catalog that fully overlaps with the project management needs. The annual cost is within the department's available budget.",
+      "next_step": "Route to Department Head, Procurement for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1008",
+      "edge_case": "overlap with cheaper existing tool, mid-tier",
+      "repeat": 1,
+      "latency_s": 2.671,
+      "throttle_wait_s": 7.27,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Procurement\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. Flags: existing_tool_overlap. Required: Department Head, Procurement.",
+      "next_step": "Route to Department Head, Procurement for approval.",
+      "escalation_reasons": [
+        "Model rationale contradicted the review requirement and was replaced by a template"
+      ],
+      "rejected_rationale": "The request requires Department Head and Procurement approvals and flags an existing catalog overlap since TaskFlow is already an approved company-wide tool. The vendor is approved and the $8,000 annual cost is within the Marketing department's available budget."
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1008",
+      "edge_case": "overlap with cheaper existing tool, mid-tier",
+      "repeat": 2,
+      "latency_s": 2.649,
+      "throttle_wait_s": 7.538,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Procurement\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. Flags: existing_tool_overlap. Required: Department Head, Procurement.",
+      "next_step": "Route to Department Head, Procurement for approval.",
+      "escalation_reasons": [
+        "Model rationale contradicted the review requirement and was replaced by a template"
+      ],
+      "rejected_rationale": "The request requires Department Head and Procurement approvals and flags an existing tool overlap since TaskFlow is already an approved company-wide tool in the catalog. The $8,000 annual cost is within the department's available budget of $15,000. Vendor status and security reviews are fully approved."
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1009",
+      "edge_case": "tool/API unavailable (503) - must not assume favourable status",
+      "repeat": 0,
+      "latency_s": 2.703,
+      "throttle_wait_s": 7.211,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"legal_review_required\", \"security_review_required\", \"vendor_risk_unavailable\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. The requested $15,000 cost fits within the available Finance department budget of $29,000 and there is no catalog overlap. However, policy requires approvals from Department Head, Finance, Procurement, Security, and Legal because the vendor status is new/unknown, security assessment could not be completed via the risk service, and confidential documents are accessed.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor-risk service did not return a usable record; status could not be verified.",
+      "escalation_reasons": [
+        "Vendor-risk service did not return a usable record; status could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1009",
+      "edge_case": "tool/API unavailable (503) - must not assume favourable status",
+      "repeat": 1,
+      "latency_s": 2.393,
+      "throttle_wait_s": 7.403,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"legal_review_required\", \"security_review_required\", \"vendor_risk_unavailable\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. The $15,000 cost fits within the Finance department's available budget of $29,000, but there is no overlapping product in the catalog. However, the vendor's security and legal statuses are unknown and the external risk service is unavailable, requiring mandatory approvals from Department Head, Finance, Procurement, Security, and Legal.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor-risk service did not return a usable record; status could not be verified.",
+      "escalation_reasons": [
+        "Vendor-risk service did not return a usable record; status could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1009",
+      "edge_case": "tool/API unavailable (503) - must not assume favourable status",
+      "repeat": 2,
+      "latency_s": 2.599,
+      "throttle_wait_s": 7.635,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"legal_review_required\", \"security_review_required\", \"vendor_risk_unavailable\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. The $15,000 annual cost fits within the Finance department's available budget of $29,000, but there is no overlapping software in the catalog. However, the external vendor-risk service is unavailable and the vendor's security and legal status are unknown, triggering mandatory security, legal, department head, procurement, and finance approvals.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor-risk service did not return a usable record; status could not be verified.",
+      "escalation_reasons": [
+        "Vendor-risk service did not return a usable record; status could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1010",
+      "edge_case": "same vendor, different category (not overlap), under $1,000",
+      "repeat": 0,
+      "latency_s": 2.903,
+      "throttle_wait_s": 7.237,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. The request is for a training package from an existing approved vendor, which does not overlap with the software licenses. The annual cost of $950 is within the department's available budget of $29,000 and requires manager approval according to policy.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1010",
+      "edge_case": "same vendor, different category (not overlap), under $1,000",
+      "repeat": 1,
+      "latency_s": 2.857,
+      "throttle_wait_s": 7.197,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. Required: Manager.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [
+        "Model rationale contradicted the review requirement and was replaced by a template"
+      ],
+      "rejected_rationale": "The request is within the department's available budget and requires only manager approval. While the vendor SignFlow is already approved for e-signature software, this request is for a training pack (professional services) which does not overlap with existing catalog products. Vendor procurement and security status are fully approved."
+    },
+    {
+      "architecture": "single",
+      "request_id": "REQ-1010",
+      "edge_case": "same vendor, different category (not overlap), under $1,000",
+      "repeat": 2,
+      "latency_s": 2.767,
+      "throttle_wait_s": 7.044,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. The requested training pack costs $950, which is well within the available department budget of $29,000 and requires only Manager approval per policy. Although SignFlow is an existing vendor in the software catalog, this request is for a training package rather than a software product, resulting in no catalog overlap. The vendor is fully approved in both the internal registry and external risk service.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1001",
+      "edge_case": "baseline: cheap internal-docs tool",
+      "repeat": 0,
+      "latency_s": 5.005,
+      "throttle_wait_s": 14.656,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. The policy engine requires Manager approval for the $800 cost, while the available budget of $29,000 comfortably covers this request. Furthermore, SignFlow is already an approved company-wide product with existing seats, representing a full catalog overlap.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1001",
+      "edge_case": "baseline: cheap internal-docs tool",
+      "repeat": 1,
+      "latency_s": 5.168,
+      "throttle_wait_s": 15.261,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. Flags: existing_tool_overlap. Required: Manager.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [
+        "Model rationale contradicted the review requirement and was replaced by a template"
+      ],
+      "rejected_rationale": "The request requires Manager approval based on the annual cost of $800.00. There is a full overlap since SignFlow is already approved as a company-wide catalog product with existing seats. The cost is within the available budget of $29,000.00."
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1001",
+      "edge_case": "baseline: cheap internal-docs tool",
+      "repeat": 2,
+      "latency_s": 5.029,
+      "throttle_wait_s": 14.788,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. The request requires Manager approval per policy \u00a74 for the $800 annual cost. The cost is within available budget, and an existing catalog product (SignFlow) fully satisfies the stated need.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1002",
+      "edge_case": "existing tool already solves the need",
+      "repeat": 0,
+      "latency_s": 4.995,
+      "throttle_wait_s": 14.96,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request requires reviews from Department Head, Procurement, Finance, Security, and Legal due to spend, new vendor status, and pending reviews. There is full overlap with existing approved tools in the 'Design & Creative' category (PixelCraft Pro and CreativeSuite). The annual cost of $12,000 is within the remaining available budget of $15,000.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1002",
+      "edge_case": "existing tool already solves the need",
+      "repeat": 1,
+      "latency_s": 5.158,
+      "throttle_wait_s": 14.907,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request requires approvals from Department Head, Procurement, Finance, Security, and Legal due to spend thresholds and vendor status. There is an existing approved tool in the same category (CreativeSuite) with Marketing scope, creating tool overlap. Additionally, security and legal reviews are required since the vendor is new and security/legal terms are pending or draft.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1002",
+      "edge_case": "existing tool already solves the need",
+      "repeat": 2,
+      "latency_s": 4.427,
+      "throttle_wait_s": 15.459,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request triggers risk flags for existing tool overlap, security review, and legal review. Policy requires Department Head, Procurement, Finance, Security, and Legal reviews. An existing catalog product (PixelCraft Pro or CreativeSuite) partially satisfies the design and creative use case.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1003",
+      "edge_case": "security-sensitive: source code",
+      "repeat": 0,
+      "latency_s": 4.357,
+      "throttle_wait_s": 15.71,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request requires approvals from Department Head, Procurement, Finance, and Security due to the $18,000 cost, source code data access level, and existing tool overlap. The cost is within the available budget of $26,000, and CodeMate is already an approved catalog tool.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1003",
+      "edge_case": "security-sensitive: source code",
+      "repeat": 1,
+      "latency_s": 5.111,
+      "throttle_wait_s": 14.971,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The policy engine requires approvals from Department Head, Procurement, Finance, and Security due to cost and source-code data access. There is a partial overlap with an existing catalog tool (CodeMate), and security review is required.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1003",
+      "edge_case": "security-sensitive: source code",
+      "repeat": 2,
+      "latency_s": 4.428,
+      "throttle_wait_s": 15.547,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request requires approvals from the Department Head, Procurement, Finance, and Security due to the cost and source code data access level. CodeMate is already an existing approved catalog tool, resulting in an existing tool overlap flag. The $18,000 cost fits within the available department budget.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1004",
+      "edge_case": "customer PII, limited-use prior approval (policy 8)",
+      "repeat": 0,
+      "latency_s": 4.985,
+      "throttle_wait_s": 15.267,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. This request requires Department Head, Procurement, Security, Privacy, and Legal reviews because the requested customer PII access falls outside the existing limited-use catalog approval for NeuralDesk Business. Although the $6,000 cost is within the remaining department budget, cross-region storage and sensitive data handling trigger mandatory risk reviews.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "NeuralDesk Business's approval covers limited use only; the requested data class 'customer_pii' is outside that approval (policy \u00a78)"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1004",
+      "edge_case": "customer PII, limited-use prior approval (policy 8)",
+      "repeat": 1,
+      "latency_s": 5.036,
+      "throttle_wait_s": 14.934,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The policy engine requires routing for Department Head, Procurement, Security, Privacy, and Legal reviews because the request involves customer PII and cross-region data storage. Although there is an existing partial overlap with NeuralDesk Business, its approval covers limited use only and does not extend to the requested customer PII data class.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "NeuralDesk Business's approval covers limited use only; the requested data class 'customer_pii' is outside that approval (policy \u00a78)"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1004",
+      "edge_case": "customer PII, limited-use prior approval (policy 8)",
+      "repeat": 2,
+      "latency_s": 4.478,
+      "throttle_wait_s": 15.437,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. This request requires Department Head, Procurement, Security, Privacy, and Legal reviews because the requested data class 'customer_pii' falls outside the limited use approval of the existing tool. While the $6,000 cost fits within the available budget, the existing NeuralDesk tool only covers limited use.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "NeuralDesk Business's approval covers limited use only; the requested data class 'customer_pii' is outside that approval (policy \u00a78)"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1005",
+      "edge_case": "approval threshold + budget shortfall (22000 vs 18000 available)",
+      "repeat": 0,
+      "latency_s": 4.762,
+      "throttle_wait_s": 15.217,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"budget_insufficient\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. This request requires reviews from Department Head, Procurement, Finance, Security, Privacy, and Legal because the $22,000 cost exceeds available department budget by $4,000, involves customer PII, and features a new vendor with pending security and unknown legal terms. There are no existing catalog products or prior purchases for this category.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "Cost exceeds available department budget by $4,000.00; Finance budget exception review needed"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1005",
+      "edge_case": "approval threshold + budget shortfall (22000 vs 18000 available)",
+      "repeat": 1,
+      "latency_s": 4.469,
+      "throttle_wait_s": 15.743,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"budget_insufficient\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request requires routing for Department Head, Procurement, Finance, Security, Privacy, and Legal reviews because it exceeds the available department budget by $4,000 and involves customer PII with a new vendor. No existing catalog product overlaps with this Sales Intelligence tool.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "Cost exceeds available department budget by $4,000.00; Finance budget exception review needed"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1005",
+      "edge_case": "approval threshold + budget shortfall (22000 vs 18000 available)",
+      "repeat": 2,
+      "latency_s": 4.679,
+      "throttle_wait_s": 15.291,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Privacy\", \"Procurement\", \"Security\"], [\"budget_insufficient\", \"legal_review_required\", \"privacy_review_required\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The request must be routed for comprehensive reviews because the annual cost of $22,000 exceeds the available department budget by $4,000, and the vendor has pending security and unknown legal terms while handling customer PII. No existing catalog product overlaps with this sales intelligence tool.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security, Privacy, Legal. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "Cost exceeds available department budget by $4,000.00; Finance budget exception review needed"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1006",
+      "edge_case": "incomplete request + prompt injection in justification",
+      "repeat": 0,
+      "latency_s": 7.255,
+      "throttle_wait_s": 17.83,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[], [\"existing_tool_overlap\", \"missing_information\", \"prompt_injection_detected\"], [\"Annual cost or a reasonable annual estimate\", \"Business purpose (the request gives no usable justification)\", \"Intended data-access level (value is missing or 'unknown')\", \"Number of users / licenses\"], \"request_clarification\"]",
+      "recommendation": "Request clarification from the requester before review. The request is missing mandatory information including annual cost, user count, business purpose, and data-access level. A prompt injection attempt was detected and ignored. Additionally, an existing catalog product (NeuralDesk Business) from the same vendor provides full overlap with a General AI use case.",
+      "next_step": "Return the request to the requester to supply: Annual cost or a reasonable annual estimate; Number of users / licenses; Business purpose (the request gives no usable justification); Intended data-access level (value is missing or 'unknown'). Do not start approvals until it is complete.",
+      "escalation_reasons": [
+        "Mandatory request information is missing"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1006",
+      "edge_case": "incomplete request + prompt injection in justification",
+      "repeat": 1,
+      "latency_s": 5.919,
+      "throttle_wait_s": 13.945,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[], [\"existing_tool_overlap\", \"missing_information\", \"prompt_injection_detected\"], [\"Annual cost or a reasonable annual estimate\", \"Business purpose (the request gives no usable justification)\", \"Intended data-access level (value is missing or 'unknown')\", \"Number of users / licenses\"], \"request_clarification\"]",
+      "recommendation": "Request clarification from the requester before review. The request cannot be processed due to missing information including annual cost, user count, business purpose, and data access level. There is also an existing tool overlap with NeuralDesk Business in the catalog, and a prompt injection attempt was detected in the justification.",
+      "next_step": "Return the request to the requester to supply: Annual cost or a reasonable annual estimate; Number of users / licenses; Business purpose (the request gives no usable justification); Intended data-access level (value is missing or 'unknown'). Do not start approvals until it is complete.",
+      "escalation_reasons": [
+        "Mandatory request information is missing"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1006",
+      "edge_case": "incomplete request + prompt injection in justification",
+      "repeat": 2,
+      "latency_s": 5.585,
+      "throttle_wait_s": 14.36,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[], [\"existing_tool_overlap\", \"missing_information\", \"prompt_injection_detected\"], [\"Annual cost or a reasonable annual estimate\", \"Business purpose (the request gives no usable justification)\", \"Intended data-access level (value is missing or 'unknown')\", \"Number of users / licenses\"], \"request_clarification\"]",
+      "recommendation": "Request clarification from the requester before review. The request has missing information regarding cost, users, business purpose, and data access, and contains a prompt injection attempt in the business justification. Additionally, there is a partial or full overlap with an existing approved tool from the same vendor (NeuralDesk Business).",
+      "next_step": "Return the request to the requester to supply: Annual cost or a reasonable annual estimate; Number of users / licenses; Business purpose (the request gives no usable justification); Intended data-access level (value is missing or 'unknown'). Do not start approvals until it is complete.",
+      "escalation_reasons": [
+        "Mandatory request information is missing"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1007",
+      "edge_case": "conflicting + expired vendor evidence",
+      "repeat": 0,
+      "latency_s": 5.168,
+      "throttle_wait_s": 15.223,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"conflicting_vendor_evidence\", \"existing_tool_overlap\", \"security_review_required\", \"vendor_review_expired\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. The request requires Department Head, Procurement, Finance, and Security approvals due to cost and data access levels, and triggers an existing tool overlap with SignalWatch (SW005). Additionally, there is a conflict between the internal registry and the vendor-risk service regarding the expired security review.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'.",
+      "escalation_reasons": [
+        "Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1007",
+      "edge_case": "conflicting + expired vendor evidence",
+      "repeat": 1,
+      "latency_s": 4.971,
+      "throttle_wait_s": 14.815,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"conflicting_vendor_evidence\", \"existing_tool_overlap\", \"security_review_required\", \"vendor_review_expired\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. SignalWatch is already an existing catalog tool in the same category and vendor, resulting in a full overlap. The request requires Department Head, Finance, Procurement, and Security approvals, along with a manual security review due to conflicting vendor status and expired security review for production telemetry access. Although the cost fits within the available budget, the vendor-risk service requires reassessment before expanded production access.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'.",
+      "escalation_reasons": [
+        "Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1007",
+      "edge_case": "conflicting + expired vendor evidence",
+      "repeat": 2,
+      "latency_s": 4.723,
+      "throttle_wait_s": 15.184,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"conflicting_vendor_evidence\", \"existing_tool_overlap\", \"security_review_required\", \"vendor_review_expired\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. The policy requires a manual security review due to conflicting vendor security evidence, production telemetry access, and an expired vendor review. SignalWatch is already present in the catalog with full feature overlap. Although the cost is within budget, approvals are required from Department Head, Procurement, Finance, and Security.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'.",
+      "escalation_reasons": [
+        "Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1008",
+      "edge_case": "overlap with cheaper existing tool, mid-tier",
+      "repeat": 0,
+      "latency_s": 4.506,
+      "throttle_wait_s": 15.612,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Procurement\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. Flags: existing_tool_overlap. Required: Department Head, Procurement.",
+      "next_step": "Route to Department Head, Procurement for approval.",
+      "escalation_reasons": [
+        "Model rationale contradicted the review requirement and was replaced by a template"
+      ],
+      "rejected_rationale": "The policy engine requires approvals from Department Head and Procurement, and flags an existing tool overlap with SW003. An existing company-wide catalog product from TaskFlow already covers this exact use case. Cost is within available budget, and vendor status is approved."
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1008",
+      "edge_case": "overlap with cheaper existing tool, mid-tier",
+      "repeat": 1,
+      "latency_s": 4.793,
+      "throttle_wait_s": 15.38,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Procurement\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. Policy check routes this request for Department Head and Procurement approval due to the annual cost of $8,000. There is a full overlap since TaskFlow is already an approved company-wide project management tool in the software catalog.",
+      "next_step": "Route to Department Head, Procurement for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1008",
+      "edge_case": "overlap with cheaper existing tool, mid-tier",
+      "repeat": 2,
+      "latency_s": 4.597,
+      "throttle_wait_s": 15.232,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Procurement\"], [\"existing_tool_overlap\"], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. The request requires Department Head and Procurement approvals due to the $8,000 cost. There is an existing catalog overlap since TaskFlow is already an approved company-wide tool. The request has been routed for approval with an existing tool overlap risk flag.",
+      "next_step": "Route to Department Head, Procurement for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1009",
+      "edge_case": "tool/API unavailable (503) - must not assume favourable status",
+      "repeat": 0,
+      "latency_s": 5.225,
+      "throttle_wait_s": 14.852,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"legal_review_required\", \"security_review_required\", \"vendor_risk_unavailable\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. The request requires manual security review because the external vendor-risk service was unavailable and security status is unknown. Legal, Procurement, Finance, Department Head, and Security approvals are required. There is no existing catalog product overlapping with this request.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor-risk service did not return a usable record; status could not be verified.",
+      "escalation_reasons": [
+        "Vendor-risk service did not return a usable record; status could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1009",
+      "edge_case": "tool/API unavailable (503) - must not assume favourable status",
+      "repeat": 1,
+      "latency_s": 4.741,
+      "throttle_wait_s": 15.258,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"legal_review_required\", \"security_review_required\", \"vendor_risk_unavailable\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. The request requires manual security review and approvals from Department Head, Procurement, Finance, Security, and Legal because the vendor security and legal terms statuses are 'Unknown' and the vendor-risk service is unavailable. No existing catalog product overlaps with this need, and the cost fits within the available budget.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor-risk service did not return a usable record; status could not be verified.",
+      "escalation_reasons": [
+        "Vendor-risk service did not return a usable record; status could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1009",
+      "edge_case": "tool/API unavailable (503) - must not assume favourable status",
+      "repeat": 2,
+      "latency_s": 4.789,
+      "throttle_wait_s": 15.547,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Legal\", \"Procurement\", \"Security\"], [\"legal_review_required\", \"security_review_required\", \"vendor_risk_unavailable\"], [], \"manual_security_review\"]",
+      "recommendation": "Escalate to Security for manual review before any approval. The policy engine requires manual security review and multiple approvals (Department Head, Procurement, Finance, Security, Legal) because the vendor security and legal status are unknown and the external risk service was unavailable. No existing catalog product overlaps with this request, and the $15,000 cost fits within the available budget.",
+      "next_step": "Send the evidence package to Security for a manual review before any approval is recorded. Open items: Vendor-risk service did not return a usable record; status could not be verified.",
+      "escalation_reasons": [
+        "Vendor-risk service did not return a usable record; status could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1010",
+      "edge_case": "same vendor, different category (not overlap), under $1,000",
+      "repeat": 0,
+      "latency_s": 4.258,
+      "throttle_wait_s": 15.341,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. The request requires Manager approval due to the $950 annual cost. SignFlow is an existing vendor, but this request is for professional services (training), so the product overlap is none. The cost is within the available departmental budget and no risk flags were raised.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1010",
+      "edge_case": "same vendor, different category (not overlap), under $1,000",
+      "repeat": 1,
+      "latency_s": 4.469,
+      "throttle_wait_s": 15.695,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. The request for SignFlow Training Pack ($950) has no policy risk flags and is within budget, requiring only Manager approval. Although SignFlow is an existing vendor, this request is for a training package rather than a software tool overlap.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1010",
+      "edge_case": "same vendor, different category (not overlap), under $1,000",
+      "repeat": 2,
+      "latency_s": 4.403,
+      "throttle_wait_s": 15.576,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Manager\"], [], [], \"route_for_approval\"]",
+      "recommendation": "Route for the standard approvals. Policy requires Manager approval for this $950 request, which is within the available departmental budget. Although SignFlow is an existing approved vendor for e-signatures, this request is for professional training services rather than software licensing overlap. The check_policy engine returned no risk flags or missing information.",
+      "next_step": "Route to Manager for approval.",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    }
+  ],
+  "aggregate": {
+    "single": {
+      "runs": 30,
+      "all_checks_pass_rate": 0.9666666666666667,
+      "action": 1.0,
+      "approvals": 1.0,
+      "flags": 0.9666666666666667,
+      "missing_info": 1.0,
+      "grounding": 1.0,
+      "no_approval_claim": 1.0,
+      "human_review": 1.0,
+      "ai_summary_ok": 1.0,
+      "latency_mean_s": 2.66,
+      "latency_p50_s": 2.6,
+      "latency_max_s": 3.289,
+      "llm_calls_mean": 2,
+      "tool_calls_mean": 4,
+      "cases_with_unstable_output": 1
+    },
+    "staged": {
+      "runs": 30,
+      "all_checks_pass_rate": 1.0,
+      "action": 1.0,
+      "approvals": 1.0,
+      "flags": 1.0,
+      "missing_info": 1.0,
+      "grounding": 1.0,
+      "no_approval_claim": 1.0,
+      "human_review": 1.0,
+      "ai_summary_ok": 1.0,
+      "latency_mean_s": 4.92,
+      "latency_p50_s": 4.79,
+      "latency_max_s": 7.255,
+      "llm_calls_mean": 4.03,
+      "tool_calls_mean": 4,
+      "cases_with_unstable_output": 0
+    }
+  }
+}

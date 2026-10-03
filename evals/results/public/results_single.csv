@@ -1,0 +1,7 @@
+case_id,request_id,architecture,passed_minimum_checks,latency_ms,llm_calls,tool_calls,failures
+PUB-01,REQ-1001,single,True,6623.0,2,4,
+PUB-02,REQ-1002,single,True,10270.4,2,4,
+PUB-03,REQ-1003,single,True,9723.8,2,4,
+PUB-04,REQ-1005,single,True,10177.2,2,4,
+PUB-05,REQ-1006,single,True,9898.7,2,4,
+PUB-06,REQ-1009,single,True,10233.2,2,4,

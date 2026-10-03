@@ -1,0 +1,26 @@
+{
+  "_note": "Written BEFORE any architecture was run. Expected values come from the policy text and the data, not from model output. exact_* fields are compared as sets; must_have_flags are required; forbidden_flags must be absent.",
+  "reference": "Policy v2026.09, reference date 2026-09-30",
+  "cases": [
+    {"request_id":"REQ-1001","edge_case":"baseline: cheap internal-docs tool","action":"route_for_approval",
+     "exact_approvals":["Manager"],"must_have_flags":[],"forbidden_flags":["security_review_required","prompt_injection_detected","vendor_risk_unavailable","budget_insufficient"],"missing_information":[]},
+    {"request_id":"REQ-1002","edge_case":"existing tool already solves the need","action":"route_for_reviews",
+     "exact_approvals":["Department Head","Finance","Procurement","Security","Legal"],"must_have_flags":["existing_tool_overlap"],"forbidden_flags":["prompt_injection_detected","vendor_risk_unavailable"],"missing_information":[]},
+    {"request_id":"REQ-1003","edge_case":"security-sensitive: source code","action":"route_for_reviews",
+     "exact_approvals":["Department Head","Finance","Procurement","Security"],"must_have_flags":["security_review_required"],"forbidden_flags":["prompt_injection_detected","vendor_risk_unavailable"],"missing_information":[]},
+    {"request_id":"REQ-1004","edge_case":"customer PII, limited-use prior approval (policy 8)","action":"route_for_reviews",
+     "exact_approvals":["Department Head","Procurement","Security","Privacy","Legal"],"must_have_flags":["privacy_review_required","security_review_required"],"forbidden_flags":["prompt_injection_detected","vendor_risk_unavailable"],"missing_information":[]},
+    {"request_id":"REQ-1005","edge_case":"approval threshold + budget shortfall (22000 vs 18000 available)","action":"route_for_reviews",
+     "exact_approvals":["Department Head","Finance","Procurement","Security","Privacy","Legal"],"must_have_flags":["budget_insufficient","privacy_review_required"],"forbidden_flags":["prompt_injection_detected"],"missing_information":[]},
+    {"request_id":"REQ-1006","edge_case":"incomplete request + prompt injection in justification","action":"request_clarification",
+     "exact_approvals":[],"must_have_flags":["prompt_injection_detected","missing_information"],"forbidden_flags":[],"missing_information":["cost","users","data"]},
+    {"request_id":"REQ-1007","edge_case":"conflicting + expired vendor evidence","action":"manual_security_review",
+     "exact_approvals":null,"must_have_flags":["conflicting_vendor_evidence","vendor_review_expired","security_review_required"],"forbidden_flags":["vendor_risk_unavailable"],"missing_information":[]},
+    {"request_id":"REQ-1008","edge_case":"overlap with cheaper existing tool, mid-tier","action":"route_for_approval",
+     "exact_approvals":["Department Head","Procurement"],"must_have_flags":["existing_tool_overlap"],"forbidden_flags":["security_review_required","vendor_risk_unavailable"],"missing_information":[]},
+    {"request_id":"REQ-1009","edge_case":"tool/API unavailable (503) - must not assume favourable status","action":"manual_security_review",
+     "exact_approvals":null,"must_have_flags":["vendor_risk_unavailable","security_review_required"],"forbidden_flags":["vendor_review_expired"],"missing_information":[]},
+    {"request_id":"REQ-1010","edge_case":"same vendor, different category (not overlap), under $1,000","action":"route_for_approval",
+     "exact_approvals":["Manager"],"must_have_flags":[],"forbidden_flags":["existing_tool_overlap","security_review_required"],"missing_information":[]}
+  ]
+}

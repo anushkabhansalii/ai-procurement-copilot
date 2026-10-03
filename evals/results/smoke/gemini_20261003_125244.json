@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "provider": "gemini",
+    "model": "gemini-3.8-flash",
+    "repeats": 1,
+    "timestamp": "2026-10-03T07:22:44+00:00",
+    "note": ""
+  },
+  "rows": [
+    {
+      "architecture": "single",
+      "request_id": "REQ-1003",
+      "edge_case": "security-sensitive: source code",
+      "repeat": 0,
+      "latency_s": 9.781,
+      "throttle_wait_s": 11.699,
+      "llm_calls": 2,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Flags: existing_tool_overlap, security_review_required. Required: Department Head, Procurement, Finance, Security.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": [
+        "Model rationale contradicted the review requirement and was replaced by a template"
+      ]
+    },
+    {
+      "architecture": "staged",
+      "request_id": "REQ-1003",
+      "edge_case": "security-sensitive: source code",
+      "repeat": 0,
+      "latency_s": 30.62,
+      "throttle_wait_s": 58.472,
+      "llm_calls": 4,
+      "tool_calls": 4,
+      "tool_names": [
+        "lookup_budget",
+        "search_software_catalog",
+        "get_vendor_status",
+        "check_policy"
+      ],
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "signature": "[[\"Department Head\", \"Finance\", \"Procurement\", \"Security\"], [\"existing_tool_overlap\", \"security_review_required\"], [], \"route_for_reviews\"]",
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. The $18,000 annual cost is within the available $26,000 budget and requires Department Head, Finance, and Procurement approvals. A Security review is required because the data access level is classified as source code. An existing catalog tool (CodeMate, SW008) already covers this exact need, as this request is an expansion for additional engineering squads.",
+      "next_step": "Send the evidence package to Department Head, Procurement, Finance, Security. These reviews must complete before the business approvals can be recorded.",
+      "escalation_reasons": []
+    }
+  ],
+  "aggregate": {
+    "single": {
+      "runs": 1,
+      "all_checks_pass_rate": 1.0,
+      "action": 1.0,
+      "approvals": 1.0,
+      "flags": 1.0,
+      "missing_info": 1.0,
+      "grounding": 1.0,
+      "no_approval_claim": 1.0,
+      "human_review": 1.0,
+      "ai_summary_ok": 1.0,
+      "latency_mean_s": 9.78,
+      "latency_p50_s": 9.78,
+      "latency_max_s": 9.781,
+      "llm_calls_mean": 2,
+      "tool_calls_mean": 4,
+      "cases_with_unstable_output": 0
+    },
+    "staged": {
+      "runs": 1,
+      "all_checks_pass_rate": 1.0,
+      "action": 1.0,
+      "approvals": 1.0,
+      "flags": 1.0,
+      "missing_info": 1.0,
+      "grounding": 1.0,
+      "no_approval_claim": 1.0,
+      "human_review": 1.0,
+      "ai_summary_ok": 1.0,
+      "latency_mean_s": 30.62,
+      "latency_p50_s": 30.62,
+      "latency_max_s": 30.62,
+      "llm_calls_mean": 4,
+      "tool_calls_mean": 4,
+      "cases_with_unstable_output": 0
+    }
+  }
+}
