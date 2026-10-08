@@ -42,5 +42,21 @@ class Handoff(unittest.TestCase):
             handoff.record_review(self.d, "Priya", "approve_purchase", log=self.log)
 
 
+class ReviewReasons(unittest.TestCase):
+    def test_security_review_explains_itself(self):
+        from src.handoff import review_reasons
+        from src.llm import StubLLM
+        from src.solution import handle_request
+        reasons = review_reasons(handle_request("REQ-1003", "single", llm=StubLLM()))
+        self.assertTrue(any(r.startswith("Security review required") and "source_code" in r for r in reasons), reasons)
+        self.assertFalse(any("Routine" in r for r in reasons))
+
+    def test_routine_request_says_routine(self):
+        from src.handoff import review_reasons
+        from src.llm import StubLLM
+        from src.solution import handle_request
+        reasons = review_reasons(handle_request("REQ-1010", "single", llm=StubLLM()))
+        self.assertEqual(reasons, ["Routine: only the standard business approvals listed are needed"])
+
 if __name__ == "__main__":
     unittest.main()

@@ -24,7 +24,7 @@ No key? Choose "stub (offline demo)" in the UI sidebar. Approvals, flags and evi
 Checks that need no key:
 ```bash
 python verify_setup.py                         # starter pre-flight
-python -m unittest discover -s tests           # 78 offline tests
+python -m unittest discover -s tests           # 80 offline tests
 ```
 The same tests run on every push in GitHub Actions (`.github/workflows/tests.yml`).
 
@@ -200,6 +200,7 @@ Each fix applies to both architectures and has a regression test in `tests/`.
 | 14 | UI could only analyse the 10 sample requests | No intake path | New request form; `handle_request(..., request=...)` (harness signature unchanged) |
 | 15 | Packet header printed "annual cost None" | Raw value printed | Shown as "not given" |
 | 16 | One request took 78.541 s for 2 model calls (8 Oct run) | No request timeout on the Gemini client | 30 s timeout (`GEMINI_TIMEOUT_MS`), retried like a 503 |
+| 17 | "Why a person must look" said "nothing beyond the approvals" even when Security was required | It listed only escalations, not the reasons for specialist reviews | `handoff.review_reasons()` shows the policy's own reason for each Security, Privacy or Legal review, overlap and escalations, in the UI and the packet |
 
 ## 12. Known limitations
 
@@ -227,7 +228,7 @@ python evals/run_public_evals.py --architecture single  # starter checks (also -
 
 ## 14. Repo map
 
-`src/policy.py` rules · `src/config.py` policy constants · `src/tools.py` tools · `src/solution.py` both architectures, prompts and guard · `src/llm.py` Gemini, Anthropic and offline stub providers · `src/handoff.py` review packet and audit log · `app.py` UI · `evals/` cases, runners, results · `tests/` 78 offline tests · `docs/` architecture, model selection, decision memo, screenshot.
+`src/policy.py` rules · `src/config.py` policy constants · `src/tools.py` tools · `src/solution.py` both architectures, prompts and guard · `src/llm.py` Gemini, Anthropic and offline stub providers · `src/handoff.py` review packet and audit log · `app.py` UI · `evals/` cases, runners, results · `tests/` 80 offline tests · `docs/` architecture, model selection, decision memo, screenshot.
 
 ## 15. Security and secrets
 

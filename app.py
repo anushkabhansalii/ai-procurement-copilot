@@ -136,7 +136,7 @@ with right:
             for m in d.missing_information or ["none"]:
                 st.write(f"- {m}")
             st.markdown("**Why a person must look**")
-            for m in d.escalation_reasons or ["nothing beyond the approvals listed"]:
+            for m in handoff.review_reasons(d):
                 st.write(f"- {m}")
 
     with t2:
