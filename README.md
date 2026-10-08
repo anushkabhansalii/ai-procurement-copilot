@@ -1,5 +1,13 @@
 # AI Procurement Request Copilot
 
+**Anushka Jain, 24bcs10193, FDE Assessment 3**
+
+| Submission | Link |
+|---|---|
+| 2-page write-up (PDF) | [docs/24bcs10193_Anushka_Jain.pdf](docs/24bcs10193_Anushka_Jain.pdf) |
+| Decision memo (493 words) | [docs/decision_memo.md](docs/decision_memo.md) |
+| Results | [section 8](#8-results) and [evals/results/](evals/results/) |
+
 An internal tool for procurement reviewers. It reads a software purchase request, gathers evidence with four tools, applies the procurement policy, and hands a person a review packet: **recommendation, evidence, approvals required, missing information, risk flags and next step**. It never approves anything.
 
 **Result in one paragraph.** Two architectures were built on the same tools, rules and guard, and run on the same cases with `gemini-3.5-flash-lite`. On the 10 provided cases (3 repeats) both passed every check, 30/30. On 15 held-out cases written before any run (2 repeats), the single agent passed 30/30 and the two-agent version 28/30. The single agent makes 2 model calls per request instead of 4, with a median latency of 2.64 s against 4.83 s. **I would ship the single agent (A).** Details in section 9 and [docs/decision_memo.md](docs/decision_memo.md).
