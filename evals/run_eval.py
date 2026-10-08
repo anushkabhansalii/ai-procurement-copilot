@@ -147,6 +147,9 @@ def markdown(result: dict, agg: dict) -> str:
 
 
 def main() -> int:
+    sys.path.insert(0, str(ROOT / "evals"))
+    import _mock_api
+    _mock_api.ensure()
     ap = argparse.ArgumentParser()
     ap.add_argument("--provider", default=None)
     ap.add_argument("--repeats", type=int, default=1)

@@ -110,6 +110,15 @@ class Guards(unittest.TestCase):
                 if v:
                     os.environ[k] = v
 
+    def test_new_request_record_is_assessed_without_requests_json(self):
+        req = {"requester_id": "E002", "vendor_name": "CodeMate", "product_name": "CodeMate Seats", "category": "Developer AI",
+               "annual_cost_usd": 26000, "user_count": 10, "business_justification": "More seats for the platform team.",
+               "data_access_level": "source_code", "requested_integrations": ["GitHub"], "urgency": "normal"}
+        d = handle_request("NEW-1", "single", llm=StubLLM(), request=req)
+        self.assertEqual(d.request_id, "NEW-1")
+        self.assertIn("CFO", d.required_approvals)  # above $25,000
+        self.assertIn("Security", d.required_approvals)  # source code
+
     def test_request_block_uses_real_field_names(self):
         # Bug: the prompt asked for "num_users", the data says "user_count", so both architectures
         # told the model every request had no user count.

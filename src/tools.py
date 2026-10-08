@@ -52,9 +52,11 @@ class ToolResult:
 class RunContext:
     """State for one handle_request call: the authoritative request, results so far, call counts."""
 
-    def __init__(self, request_id: str):
+    def __init__(self, request_id: str, request: dict | None = None):
         self.request_id = request_id
-        self.request = data_access.get_request(request_id)  # raises KeyError for unknown ids
+        # A new request (UI form, held-out eval) is passed in; otherwise it is read from requests.json.
+        # Either way it is business data: the policy engine validates every field it uses.
+        self.request = dict(request, request_id=request_id) if request is not None else data_access.get_request(request_id)
         self.telemetry = RunTelemetryCounter()
         self.results: dict[str, ToolResult] = {}
         self.auto_fetched: list[str] = []  # tools check_policy had to call itself (logged, not hidden)

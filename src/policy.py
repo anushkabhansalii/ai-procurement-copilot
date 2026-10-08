@@ -179,6 +179,19 @@ def detect_injection(*texts: Any) -> list[str]:
     return sorted(set(hits))
 
 
+def request_text_fields(request: dict) -> list[str]:
+    """All string values of a request record, including strings inside lists (e.g. integrations)."""
+    out: list[str] = []
+    for k, v in request.items():
+        if k == "request_id":
+            continue
+        if isinstance(v, str):
+            out.append(v)
+        elif isinstance(v, list):
+            out.extend(x for x in v if isinstance(x, str))
+    return out
+
+
 def purpose_text_without_instructions(text: Any) -> str:
     """Business justification with instruction-like sentences removed."""
     if not isinstance(text, str):
@@ -240,8 +253,10 @@ def assess(
     vendor = request.get("vendor_name")
 
     # ---- policy 9: untrusted content (checked first so the flag is present on every path)
+    # Every free-text field of the request is business data (policy 9 names notes explicitly), not a
+    # chosen few: hidden or new requests may carry instructions in notes, category or integration names.
     injected = detect_injection(
-        request.get("business_justification"), request.get("product_name"), request.get("vendor_name"),
+        *request_text_fields(request),
         registry_row.get("notes") if registry_row else None,
         api_record.get("notes") if api_record else None,
     )
@@ -386,6 +401,12 @@ def assess(
     a.approvals.sort(key=APPROVAL_ORDER.index)
     if a.missing_information:
         a.action = "request_clarification"
+        # Policy 1: not ready for approval. A tier computed from partial data can understate what is
+        # needed (an unknown data class may add Security/Privacy), so it is evidence, not a routing list.
+        if a.approvals:
+            a.findings.append((f"Provisional approvals on the information given so far: {', '.join(a.approvals)}. "
+                               "Final approvals are set once the request is complete", "policy §1", "verified"))
+            a.approvals = []
     elif view["conflict"] or view["unavailable"] or view["expired"]:
         a.action = "manual_security_review"
     elif {"Security", "Privacy", "Legal"} & set(a.approvals) or "budget_insufficient" in a.risk_flags:

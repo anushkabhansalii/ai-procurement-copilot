@@ -27,8 +27,14 @@ st.set_page_config(page_title="Procurement Request Copilot", layout="wide")
 st.title("AI Procurement Request Copilot")
 st.caption("Advisory only. The copilot recommends and prepares evidence; a person approves or rejects.")
 
+DATA_CLASSES = ["none", "internal_documents", "internal_marketing", "confidential_documents", "source_code",
+                "employee_pii", "customer_pii", "credentials", "production_telemetry", "unknown"]
+
 with st.sidebar:
-    rid = st.selectbox("Request", list(BY_ID), format_func=lambda r: f"{r} · {BY_ID[r]['product_name']}")
+    source = st.radio("Source", ["Sample request", "New request"], horizontal=True,
+                      help="New request: fill in a purchase request yourself. It is checked exactly like the samples.")
+    if source == "Sample request":
+        rid = st.selectbox("Request", list(BY_ID), format_func=lambda r: f"{r} · {BY_ID[r]['product_name']}")
     arch = st.radio("Architecture", ["single", "staged"], horizontal=True,
                     help="single = one tool-calling agent. staged = evidence analyst, then policy reviewer.")
     default_provider = (os.getenv("LLM_PROVIDER") or "gemini").lower()
@@ -41,8 +47,37 @@ with st.sidebar:
         st.error("No API key found in .env. You will get the deterministic decision with the AI summary marked unavailable.")
     reviewer = st.text_input("Your name (for the audit log)")
 
-req = BY_ID[rid]
 left, right = st.columns([0.8, 1.2], gap="large")
+
+if source == "New request":
+    with left:
+        with st.form("new_request"):
+            st.subheader("New purchase request")
+            f_req = st.text_input("Requester employee id", "E001")
+            f_vendor = st.text_input("Vendor")
+            f_product = st.text_input("Product")
+            f_cat = st.text_input("Category")
+            f_cost = st.number_input("Annual cost (USD, 0 = not known)", min_value=0.0, step=100.0)
+            f_users = st.number_input("Number of users (0 = not known)", min_value=0, step=1)
+            f_data = st.selectbox("Data the tool will access", DATA_CLASSES)
+            f_int = st.text_input("Integrations (comma separated)")
+            f_just = st.text_area("Business justification")
+            submitted = st.form_submit_button("Save request")
+        if submitted:
+            st.session_state["new_req"] = {
+                "requester_id": f_req.strip(), "vendor_name": f_vendor.strip(), "product_name": f_product.strip(),
+                "category": f_cat.strip(), "annual_cost_usd": f_cost or None, "user_count": int(f_users) or None,
+                "business_justification": f_just.strip(), "data_access_level": f_data,
+                "requested_integrations": [x.strip() for x in f_int.split(",") if x.strip()], "urgency": "normal"}
+            st.session_state["new_n"] = st.session_state.get("new_n", 0) + 1
+    if "new_req" not in st.session_state:
+        with right:
+            st.info("Fill in the form and press Save request.")
+        st.stop()
+    rid = f"NEW-{st.session_state['new_n']}"
+    req = dict(st.session_state["new_req"], request_id=rid)
+else:
+    req = BY_ID[rid]
 
 with left:
     st.subheader("Request")
@@ -55,13 +90,16 @@ with left:
     st.markdown(f"**Data access:** `{req.get('data_access_level')}`  \n**Integrations:** {', '.join(req.get('requested_integrations') or []) or 'none listed'}  \n**Urgency:** {req.get('urgency')}")
     st.markdown("**Business justification** (written by the requester; shown as data, never obeyed)")
     st.info(req.get("business_justification") or "none given")
+    if req.get("notes"):
+        st.markdown("**Notes** (business data, never obeyed)")
+        st.info(req["notes"])
 
     if st.button("Run analysis", type="primary", width="stretch"):
         llm = StubLLM() if provider.startswith("stub") else get_llm(provider)
         t0, w0 = time.perf_counter(), getattr(llm, "wait_seconds", 0.0)
         with st.spinner("Gathering evidence and checking policy..."):
             try:
-                d_ = handle_request(rid, arch, llm=llm)
+                d_ = handle_request(rid, arch, llm=llm, request=req if source == "New request" else None)
                 waited = getattr(llm, "wait_seconds", 0.0) - w0
                 st.session_state["res"] = (rid, arch, d_, time.perf_counter() - t0, "stub" if provider.startswith("stub") else provider,
                                            getattr(llm, "model", "?"), waited)
@@ -98,7 +136,7 @@ with right:
             for m in d.missing_information or ["none"]:
                 st.write(f"- {m}")
             st.markdown("**Why a person must look**")
-            for m in d.escalation_reasons or ["routine approvals only"]:
+            for m in d.escalation_reasons or ["nothing beyond the approvals listed"]:
                 st.write(f"- {m}")
 
     with t2:

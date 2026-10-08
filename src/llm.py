@@ -35,7 +35,9 @@ class AnthropicLLM:
         key = os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN")
         if not key:
             raise LLMError("ANTHROPIC_API_KEY is not set")
-        self.model = model or os.getenv("MODEL_NAME") or "claude-sonnet-4-5"
+        self.model = model or os.getenv("MODEL_NAME")
+        if not self.model:
+            raise LLMError("MODEL_NAME must be set when LLM_PROVIDER=anthropic")
         self.client = anthropic.Anthropic(timeout=timeout, max_retries=1)
 
     def complete(self, system: str, messages: list[dict], tools: list[dict], max_tokens: int = 1500) -> LLMReply:
@@ -84,7 +86,10 @@ class GeminiLLM:
             if not key:
                 raise LLMError("GEMINI_API_KEY is not set")
             from google import genai
-            client = genai.Client(api_key=key)
+            from google.genai import types
+            # Without a timeout one slow provider response blocked a request for 75 s in the evaluation
+            # (evals/results/gemini_20261008_135249.json, A REQ-1002). A timed-out call is retried like a 503.
+            client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=int(os.getenv("GEMINI_TIMEOUT_MS", "30000"))))
         self.client = client
         self.model = model or os.getenv("MODEL_NAME") or "gemini-flash-latest"
         rpm = float(os.getenv("GEMINI_RPM", "8"))
@@ -129,7 +134,8 @@ class GeminiLLM:
                 msg = str(exc)
                 if "PerDay" in msg:  # daily quota: retrying for minutes cannot help, so fail at once and say why
                     raise LLMError(f"daily quota exhausted for {self.model}: {msg[:200]}") from exc
-                transient = any(x in msg for x in ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "500", "504"))
+                transient = any(x in msg for x in ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "500", "504")) \
+                    or "timeout" in f"{type(exc).__name__} {msg}".lower() or "timed out" in msg.lower()
                 if not transient or attempt == self.max_retries:
                     raise LLMError(f"{type(exc).__name__}: {msg[:300]}") from exc
                 self._sleep(min(60.0, 5.0 * (2 ** attempt)))

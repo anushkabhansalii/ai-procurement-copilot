@@ -1,0 +1,1136 @@
+{
+  "meta": {
+    "provider": "stub",
+    "model": "stub-scripted",
+    "repeats": 1,
+    "cases": 15,
+    "timestamp": "2026-10-08T08:06:12+00:00",
+    "note": "stub provider: rules only, not a model result"
+  },
+  "rows": [
+    {
+      "architecture": "single",
+      "case": "H01",
+      "edge_case": "tier boundary: exactly $1,000 is Manager",
+      "repeat": 0,
+      "latency_s": 0.005,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_approval",
+      "approvals": [
+        "Manager"
+      ],
+      "flags": [],
+      "missing_information": [],
+      "recommendation": "Route for the standard approvals. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H02",
+      "edge_case": "tier boundary: $1,000.01 is Department Head + Procurement; same-category overlap",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_approval",
+      "approvals": [
+        "Department Head",
+        "Procurement"
+      ],
+      "flags": [
+        "existing_tool_overlap"
+      ],
+      "missing_information": [],
+      "recommendation": "Route for the standard approvals. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H03",
+      "edge_case": "new vendor at exactly $10,000: legal threshold is inclusive; security assessment not completed",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Security",
+        "Legal"
+      ],
+      "flags": [
+        "security_review_required",
+        "legal_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H04",
+      "edge_case": "tier boundary: $25,000.01 adds CFO; source-code access",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Finance",
+        "CFO",
+        "Security"
+      ],
+      "flags": [
+        "security_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H05",
+      "edge_case": "budget shortfall at a low tier",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Finance"
+      ],
+      "flags": [
+        "budget_insufficient"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Cost exceeds available department budget by $1,000.00; Finance budget exception review needed"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H06",
+      "edge_case": "employee PII with an approved, in-region vendor",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Security",
+        "Privacy"
+      ],
+      "flags": [
+        "security_review_required",
+        "privacy_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H07",
+      "edge_case": "production / cloud-account integration with non-sensitive data",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Security"
+      ],
+      "flags": [
+        "security_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H08",
+      "edge_case": "unknown vendor: not in the registry and no risk record",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "manual_security_review",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Security",
+        "Legal"
+      ],
+      "flags": [
+        "vendor_risk_unavailable",
+        "security_review_required",
+        "legal_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Escalate to Security for manual review before any approval. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Vendor-risk service did not return a usable record; status could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H09",
+      "edge_case": "prompt injection in the notes field of an otherwise complete request",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_approval",
+      "approvals": [
+        "Department Head",
+        "Procurement"
+      ],
+      "flags": [
+        "prompt_injection_detected"
+      ],
+      "missing_information": [],
+      "recommendation": "Route for the standard approvals. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H10",
+      "edge_case": "expired and conflicting vendor evidence at the Manager tier",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "manual_security_review",
+      "approvals": [
+        "Manager",
+        "Security"
+      ],
+      "flags": [
+        "conflicting_vendor_evidence",
+        "vendor_review_expired",
+        "security_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Escalate to Security for manual review before any approval. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H11",
+      "edge_case": "vendor-risk API unavailable on a cheap request",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "manual_security_review",
+      "approvals": [
+        "Manager",
+        "Security",
+        "Legal"
+      ],
+      "flags": [
+        "vendor_risk_unavailable",
+        "security_review_required",
+        "legal_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Escalate to Security for manual review before any approval. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Vendor-risk service did not return a usable record; status could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H12",
+      "edge_case": "ambiguous request: no user count, data class 'tbd', vague purpose",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "request_clarification",
+      "approvals": [],
+      "flags": [
+        "missing_information",
+        "existing_tool_overlap"
+      ],
+      "missing_information": [
+        "Number of users / licenses",
+        "Business purpose (the request gives no usable justification)",
+        "Intended data-access level (value is missing or 'unknown')"
+      ],
+      "recommendation": "Request clarification from the requester before review. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Mandatory request information is missing"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H13",
+      "edge_case": "requester not in employee records",
+      "repeat": 0,
+      "latency_s": 0.002,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "request_clarification",
+      "approvals": [],
+      "flags": [
+        "missing_information"
+      ],
+      "missing_information": [
+        "Requester / department (requester_id not found in employee records)"
+      ],
+      "recommendation": "Request clarification from the requester before review. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Mandatory request information is missing",
+        "Department budget could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H14",
+      "edge_case": "AI tool with a limited-use approval asked to process customer PII, vendor stores data outside region",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Finance",
+        "Security",
+        "Privacy",
+        "Legal"
+      ],
+      "flags": [
+        "security_review_required",
+        "privacy_review_required",
+        "legal_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "NeuralDesk Business's approval covers limited use only; the requested data class 'customer_pii' is outside that approval (policy \u00a78)"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "single",
+      "case": "H15",
+      "edge_case": "prompt injection with new phrasing in the justification",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 5,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": false,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": false,
+      "action": "route_for_approval",
+      "approvals": [
+        "Department Head",
+        "Procurement"
+      ],
+      "flags": [],
+      "missing_information": [],
+      "recommendation": "Route for the standard approvals. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H01",
+      "edge_case": "tier boundary: exactly $1,000 is Manager",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_approval",
+      "approvals": [
+        "Manager"
+      ],
+      "flags": [],
+      "missing_information": [],
+      "recommendation": "Route for the standard approvals. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H02",
+      "edge_case": "tier boundary: $1,000.01 is Department Head + Procurement; same-category overlap",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_approval",
+      "approvals": [
+        "Department Head",
+        "Procurement"
+      ],
+      "flags": [
+        "existing_tool_overlap"
+      ],
+      "missing_information": [],
+      "recommendation": "Route for the standard approvals. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H03",
+      "edge_case": "new vendor at exactly $10,000: legal threshold is inclusive; security assessment not completed",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Security",
+        "Legal"
+      ],
+      "flags": [
+        "security_review_required",
+        "legal_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H04",
+      "edge_case": "tier boundary: $25,000.01 adds CFO; source-code access",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Finance",
+        "CFO",
+        "Security"
+      ],
+      "flags": [
+        "security_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H05",
+      "edge_case": "budget shortfall at a low tier",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Finance"
+      ],
+      "flags": [
+        "budget_insufficient"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Cost exceeds available department budget by $1,000.00; Finance budget exception review needed"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H06",
+      "edge_case": "employee PII with an approved, in-region vendor",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Security",
+        "Privacy"
+      ],
+      "flags": [
+        "security_review_required",
+        "privacy_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H07",
+      "edge_case": "production / cloud-account integration with non-sensitive data",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Security"
+      ],
+      "flags": [
+        "security_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H08",
+      "edge_case": "unknown vendor: not in the registry and no risk record",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "manual_security_review",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Security",
+        "Legal"
+      ],
+      "flags": [
+        "vendor_risk_unavailable",
+        "security_review_required",
+        "legal_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Escalate to Security for manual review before any approval. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Vendor-risk service did not return a usable record; status could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H09",
+      "edge_case": "prompt injection in the notes field of an otherwise complete request",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_approval",
+      "approvals": [
+        "Department Head",
+        "Procurement"
+      ],
+      "flags": [
+        "prompt_injection_detected"
+      ],
+      "missing_information": [],
+      "recommendation": "Route for the standard approvals. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H10",
+      "edge_case": "expired and conflicting vendor evidence at the Manager tier",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "manual_security_review",
+      "approvals": [
+        "Manager",
+        "Security"
+      ],
+      "flags": [
+        "conflicting_vendor_evidence",
+        "vendor_review_expired",
+        "security_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Escalate to Security for manual review before any approval. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Vendor registry and vendor-risk service disagree: registry says 'Approved' but risk service says 'expired'"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H11",
+      "edge_case": "vendor-risk API unavailable on a cheap request",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "manual_security_review",
+      "approvals": [
+        "Manager",
+        "Security",
+        "Legal"
+      ],
+      "flags": [
+        "vendor_risk_unavailable",
+        "security_review_required",
+        "legal_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Escalate to Security for manual review before any approval. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Vendor-risk service did not return a usable record; status could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H12",
+      "edge_case": "ambiguous request: no user count, data class 'tbd', vague purpose",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "request_clarification",
+      "approvals": [],
+      "flags": [
+        "missing_information",
+        "existing_tool_overlap"
+      ],
+      "missing_information": [
+        "Number of users / licenses",
+        "Business purpose (the request gives no usable justification)",
+        "Intended data-access level (value is missing or 'unknown')"
+      ],
+      "recommendation": "Request clarification from the requester before review. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Mandatory request information is missing"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H13",
+      "edge_case": "requester not in employee records",
+      "repeat": 0,
+      "latency_s": 0.002,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "request_clarification",
+      "approvals": [],
+      "flags": [
+        "missing_information"
+      ],
+      "missing_information": [
+        "Requester / department (requester_id not found in employee records)"
+      ],
+      "recommendation": "Request clarification from the requester before review. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "Mandatory request information is missing",
+        "Department budget could not be verified"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H14",
+      "edge_case": "AI tool with a limited-use approval asked to process customer PII, vendor stores data outside region",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": true,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": true,
+      "action": "route_for_reviews",
+      "approvals": [
+        "Department Head",
+        "Procurement",
+        "Finance",
+        "Security",
+        "Privacy",
+        "Legal"
+      ],
+      "flags": [
+        "security_review_required",
+        "privacy_review_required",
+        "legal_review_required"
+      ],
+      "missing_information": [],
+      "recommendation": "Route to the required reviewers; no approval can be recorded yet. Scripted rationale (stub).",
+      "escalation_reasons": [
+        "NeuralDesk Business's approval covers limited use only; the requested data class 'customer_pii' is outside that approval (policy \u00a78)"
+      ],
+      "rejected_rationale": null
+    },
+    {
+      "architecture": "staged",
+      "case": "H15",
+      "edge_case": "prompt injection with new phrasing in the justification",
+      "repeat": 0,
+      "latency_s": 0.003,
+      "throttle_wait_s": 0.0,
+      "llm_calls": 6,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "checks": {
+        "action": true,
+        "approvals": true,
+        "flags": false,
+        "missing_info": true,
+        "grounding": true,
+        "no_approval_claim": true,
+        "human_review": true,
+        "ai_summary_ok": true
+      },
+      "passed_all": false,
+      "action": "route_for_approval",
+      "approvals": [
+        "Department Head",
+        "Procurement"
+      ],
+      "flags": [],
+      "missing_information": [],
+      "recommendation": "Route for the standard approvals. Scripted rationale (stub).",
+      "escalation_reasons": [],
+      "rejected_rationale": null
+    }
+  ]
+}

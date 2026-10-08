@@ -90,6 +90,14 @@ class GeminiAdapter(unittest.TestCase):
         r = g.complete("s", [{"role": "user", "content": "x"}], [SUBMIT_ASSESSMENT])
         self.assertEqual(r.tool_calls[0]["name"], "submit_assessment")
 
+    def test_timeout_is_retried(self):
+        class ReadTimeout(Exception):
+            pass
+        g = llm_with([ReadTimeout("The read operation timed out"), fc("submit_assessment", SUBMIT)])
+        r = g.complete("s", [{"role": "user", "content": "x"}], [SUBMIT_ASSESSMENT])
+        self.assertEqual(r.tool_calls[0]["name"], "submit_assessment")
+        self.assertEqual(g.client.models.calls, 2)
+
     def test_non_transient_error_is_not_retried(self):
         g = llm_with([RuntimeError("400 INVALID_ARGUMENT"), fc("submit_assessment", SUBMIT)])
         with self.assertRaises(LLMError):

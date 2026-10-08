@@ -3,7 +3,7 @@
     "provider": "stub",
     "model": "stub-scripted",
     "repeats": 1,
-    "timestamp": "2026-10-03T08:14:55+00:00",
+    "timestamp": "2026-10-08T08:06:12+00:00",
     "note": "stub provider: plumbing check only, not a model result"
   },
   "rows": [
@@ -16,6 +16,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 5,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -48,6 +50,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 5,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -80,6 +84,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 5,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -112,6 +118,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 5,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -146,6 +154,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 5,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -180,6 +190,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 5,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -214,6 +226,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 5,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -248,6 +262,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 5,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -280,6 +296,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 5,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -314,6 +332,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 5,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -346,6 +366,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 6,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -378,6 +400,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 6,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -406,10 +430,12 @@
       "request_id": "REQ-1003",
       "edge_case": "security-sensitive: source code",
       "repeat": 0,
-      "latency_s": 0.004,
+      "latency_s": 0.003,
       "throttle_wait_s": 0.0,
       "llm_calls": 6,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -442,6 +468,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 6,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -476,6 +504,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 6,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -510,6 +540,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 6,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -544,6 +576,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 6,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -578,6 +612,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 6,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -610,6 +646,8 @@
       "throttle_wait_s": 0.0,
       "llm_calls": 6,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -640,10 +678,12 @@
       "request_id": "REQ-1010",
       "edge_case": "same vendor, different category (not overlap), under $1,000",
       "repeat": 0,
-      "latency_s": 0.003,
+      "latency_s": 0.022,
       "throttle_wait_s": 0.0,
       "llm_calls": 6,
       "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
       "tool_names": [
         "lookup_budget",
         "search_software_catalog",
@@ -685,6 +725,8 @@
       "latency_max_s": 0.006,
       "llm_calls_mean": 5,
       "tool_calls_mean": 4,
+      "input_tokens_mean": 0,
+      "output_tokens_mean": 0,
       "cases_with_unstable_output": 0
     },
     "staged": {
@@ -700,9 +742,11 @@
       "ai_summary_ok": 1.0,
       "latency_mean_s": 0.0,
       "latency_p50_s": 0.0,
-      "latency_max_s": 0.004,
+      "latency_max_s": 0.022,
       "llm_calls_mean": 6,
       "tool_calls_mean": 4,
+      "input_tokens_mean": 0,
+      "output_tokens_mean": 0,
       "cases_with_unstable_output": 0
     }
   }
