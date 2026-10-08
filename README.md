@@ -228,7 +228,7 @@ python evals/run_public_evals.py --architecture single  # starter checks (also -
 
 ## 14. Repo map
 
-`src/policy.py` rules · `src/config.py` policy constants · `src/tools.py` tools · `src/solution.py` both architectures, prompts and guard · `src/llm.py` Gemini, Anthropic and offline stub providers · `src/handoff.py` review packet and audit log · `app.py` UI · `evals/` cases, runners, results · `tests/` 80 offline tests · `docs/` architecture, model selection, decision memo, screenshot.
+`src/policy.py` rules · `src/config.py` policy constants · `src/tools.py` tools · `src/solution.py` both architectures, prompts and guard · `src/llm.py` Gemini, Anthropic and offline stub providers · `src/handoff.py` review packet and audit log · `app.py` UI · `evals/` cases, runners, results · `tests/` 80 offline tests · `docs/` architecture, model selection, decision memo, screenshot, and the 2-page submission PDF (`docs/24bcs10193_Anushka_Jain.pdf`).
 
 ## 15. Security and secrets
 
